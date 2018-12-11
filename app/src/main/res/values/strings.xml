@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestMR</string>
+    <string name="categories">Categories</string>
+    <string name="cart">Cart</string>
+</resources>
