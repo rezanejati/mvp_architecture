@@ -12,6 +12,7 @@ public class MainActivityPresenterImpl <V extends MvpView> extends BasePresenter
         MainActivityPresenter<V> {
     @Inject
     public MainActivityPresenterImpl() {
+
      
     }
 

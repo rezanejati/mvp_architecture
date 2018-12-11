@@ -51,7 +51,7 @@ public class ActivityModule {
     }
 
     @Provides
-    MainActivityPresenter<MainActivityView> provideFeedPresenter(
+    MainActivityPresenter<MainActivityView> activityPresenter(
             MainActivityPresenterImpl<MainActivityView> presenter) {
         return presenter;
     }

@@ -18,7 +18,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by RezaNejati on 12/11/2018.
  */
 @SuppressLint("Registered")
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity  implements MvpView {
     private ActivityComponentS mActivityComponent;
 
     @Override
@@ -46,4 +46,23 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void onError(String error) {
+
+    }
+
+    @Override
+    public void onMessage(String message) {
+
+    }
 }
