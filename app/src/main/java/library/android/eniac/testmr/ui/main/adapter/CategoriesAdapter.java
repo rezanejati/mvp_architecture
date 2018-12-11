@@ -13,9 +13,11 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import library.android.eniac.testmr.R;
+import library.android.eniac.testmr.model.CategoryModel;
 import library.android.eniac.testmr.viewholders.CategoriesViewHolder;
 
 /**
@@ -23,11 +25,17 @@ import library.android.eniac.testmr.viewholders.CategoriesViewHolder;
  */
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesViewHolder> {
 
+    private List<CategoryModel> categoryModelList ;
+
+    public void addItems(List<CategoryModel> categoryModels) {
+        categoryModelList.addAll(categoryModels);
+        notifyDataSetChanged();
+    }
 
 
+    public CategoriesAdapter(List<CategoryModel> categoryModelList) {
+        this.categoryModelList=categoryModelList;
 
-
-    public CategoriesAdapter() {
 
     }
 
@@ -35,25 +43,19 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesViewHolder
     @Override
     public CategoriesViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         return new CategoriesViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.categories_item, parent, false));
+                .inflate(R.layout.categories_item, parent, false),categoryModelList);
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull final CategoriesViewHolder holder, final int position) {
-
-      //  final Option item = data.get(position);
+        holder.onBind(position);
 
     }
-
-
     @Override
     public int getItemCount() {
-        return 10;
+        return categoryModelList.size();
     }
-
-
-
 
     @Override
     public long getItemId(int position) {

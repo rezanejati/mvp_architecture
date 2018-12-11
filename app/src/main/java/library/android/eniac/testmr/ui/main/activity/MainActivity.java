@@ -25,13 +25,13 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
 
     @Inject
     FragmentPagerItemAdapter mPagerAdapter;
-    @Inject
-    MainActivityPresenter<MainActivityView> mPresenter;
+
 
     @BindView(R.id.main_view_pager)
     ViewPager vpMain;
     @BindView(R.id.tab_layout)
     SmartTabLayout mTabLayout;
+    MainActivityPresenterImpl mainActivityPresenter;
 
 
 
@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
         ButterKnife.bind(this);
         getActivityComponent().inject(this);
         initializeView();
-        mPresenter.onAttach(this);
+         mainActivityPresenter = new MainActivityPresenterImpl(this);
     }
 
     private void initializeView() {

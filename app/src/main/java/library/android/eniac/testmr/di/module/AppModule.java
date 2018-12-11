@@ -35,7 +35,6 @@ public class AppModule {
     }
 
 
-
     @Provides
     @Singleton
     CalligraphyConfig calligraphyConfig() {

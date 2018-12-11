@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
+import java.util.ArrayList;
+
 import dagger.Module;
 import dagger.Provides;
 import library.android.eniac.testmr.R;
+import library.android.eniac.testmr.model.CategoryModel;
 import library.android.eniac.testmr.ui.main.activity.MainActivityPresenter;
 import library.android.eniac.testmr.ui.main.activity.MainActivityPresenterImpl;
 import library.android.eniac.testmr.ui.main.activity.MainActivityView;
@@ -47,13 +50,7 @@ public class ActivityModule {
     }
     @Provides
     CategoriesAdapter categoriesAdapter() {
-        return new CategoriesAdapter();
-    }
-
-    @Provides
-    MainActivityPresenter<MainActivityView> activityPresenter(
-            MainActivityPresenterImpl<MainActivityView> presenter) {
-        return presenter;
+        return new CategoriesAdapter(new ArrayList<CategoryModel>());
     }
 
 

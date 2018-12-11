@@ -1,0 +1,43 @@
+[
+  {
+    "categoryName": "dairy",
+
+    "productDtos": [
+      {
+        "productName": "Milk",
+        "productPrice": 70000
+
+      },  {
+        "productName": "Yogurt",
+        "productPrice": 10000
+
+      }
+    ,  {
+        "productName": "Cup",
+        "productPrice": 10000
+
+      },
+      {
+        "productName": "Ice Cream",
+        "productPrice": 10000
+
+      }
+    ]
+  },
+  {
+    "categoryName": "conserve",
+
+    "productDtos": [
+      {
+        "productName": "Corn",
+        "productPrice": 12000
+
+      },  {
+        "productName": "Fish",
+        "productPrice": 180000
+
+      }
+
+    ]
+  }
+]
