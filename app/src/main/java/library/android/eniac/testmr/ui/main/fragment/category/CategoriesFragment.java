@@ -1,5 +1,6 @@
 package library.android.eniac.testmr.ui.main.fragment.category;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import library.android.eniac.testmr.di.component.ActivityComponentS;
 import library.android.eniac.testmr.model.CategoryModel;
 import library.android.eniac.testmr.ui.base.BaseFragment;
 import library.android.eniac.testmr.ui.main.adapter.CategoriesAdapter;
+import library.android.eniac.testmr.ui.main.adapter.ProductAdapter;
 
 /**
  * Created by RezaNejati on 12/11/2018.
@@ -32,26 +34,29 @@ public class CategoriesFragment extends BaseFragment implements CategoriesView {
     @Inject
     CategoriesAdapter categoriesAdapter;
 
+    ActivityComponentS component;
     @BindView(R.id.categories_recycler_view)
     RecyclerView rvCategoriesAdapter;
     private View view;
     private CategoriesPresenterImpl presenter;
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-         view = inflater.inflate(R.layout.fragment_categories, container, false);
+        if (view != null)
+            return view;
 
-        ActivityComponentS component = getActivityComponent();
+        view = inflater.inflate(R.layout.fragment_categories, container, false);
+
+         component = getActivityComponent();
+
         if (component != null) {
             component.inject(this);
 
         }
-        presenter= new CategoriesPresenterImpl(this,new CategoriesImpl(getActivity()));
+        presenter = new CategoriesPresenterImpl(this, new CategoriesImpl(getActivity()));
         return view;
     }
 
@@ -59,6 +64,7 @@ public class CategoriesFragment extends BaseFragment implements CategoriesView {
     protected void initializeView(View view) {
         rvCategoriesAdapter.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvCategoriesAdapter.setAdapter(categoriesAdapter);
+        categoriesAdapter.setComponent(component);
 
 
     }
@@ -66,6 +72,11 @@ public class CategoriesFragment extends BaseFragment implements CategoriesView {
     @Override
     public void categoryData(List<CategoryModel> categoryModels) {
         categoriesAdapter.addItems(categoryModels);
+
+    }
+
+    @Override
+    public void openMapActivity() {
 
     }
 
@@ -88,4 +99,6 @@ public class CategoriesFragment extends BaseFragment implements CategoriesView {
     public void onMessage(String message) {
 
     }
+
+
 }

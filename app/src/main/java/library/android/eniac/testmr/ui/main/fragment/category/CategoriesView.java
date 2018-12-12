@@ -10,5 +10,6 @@ import library.android.eniac.testmr.ui.base.mvp.MvpView;
  */
 public interface CategoriesView extends MvpView{
     void categoryData(List<CategoryModel> categoryModels);
+    void openMapActivity();
 
 }

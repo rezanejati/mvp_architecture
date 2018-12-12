@@ -1,5 +1,8 @@
 package library.android.eniac.testmr.ui.main.activity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -7,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -17,6 +22,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import library.android.eniac.testmr.R;
+import library.android.eniac.testmr.model.ProductDto;
 import library.android.eniac.testmr.ui.base.BaseActivity;
 import library.android.eniac.testmr.ui.base.mvp.MvpView;
 import library.android.eniac.testmr.ui.main.adapter.CategoriesAdapter;
@@ -34,8 +40,6 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
     MainActivityPresenterImpl mainActivityPresenter;
 
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +47,7 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
         ButterKnife.bind(this);
         getActivityComponent().inject(this);
         initializeView();
-         mainActivityPresenter = new MainActivityPresenterImpl(this);
+        mainActivityPresenter = new MainActivityPresenterImpl(this);
     }
 
     private void initializeView() {
@@ -53,10 +57,7 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
         mTabLayout.setViewPager(vpMain);
 
 
-
     }
-
-
 
 
     @Override
@@ -66,12 +67,12 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
         TextView customText = (TextView) tab.findViewById(R.id.tvTitle);
         switch (position) {
             case 0:
-           //  customText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/MadisonStreetSans-Regular.ttf"));
+                //  customText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/MadisonStreetSans-Regular.ttf"));
 
                 customText.setText(adapter.getPageTitle(position));
                 break;
             case 1:
-               // customText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/MadisonStreetSans-Regular.ttf"));
+                // customText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/MadisonStreetSans-Regular.ttf"));
 
                 customText.setText(adapter.getPageTitle(position));
                 break;
@@ -101,7 +102,25 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
     public void onMessage(String message) {
 
     }
+
     protected void onDestroy() {
         super.onDestroy();
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100&&resultCode == Activity.RESULT_OK) {
+            ProductDto user= new Gson().fromJson(data.getStringExtra("product"), ProductDto.class);
+            Toast.makeText(this,user.getProductName(), Toast.LENGTH_SHORT).show();
+            vpMain.setCurrentItem(1);
+
+        }
+
+
+
+
+
+    }
+
+
 }

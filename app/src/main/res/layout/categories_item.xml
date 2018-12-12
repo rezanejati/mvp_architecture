@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp">
 
 
-    <TextView
-        android:id="@+id/category_name"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:textColor="@android:color/black"
- />
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/categoty_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="35dp">
+
+
+            <TextView
+                android:id="@+id/category_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="25sp"
+                />
+
+            <TextView
+                android:id="@+id/tvArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center" />
+
+        </RelativeLayout>
+
+
+        <com.github.aakira.expandablelayout.ExpandableLinearLayout
+            android:id="@+id/expandable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoty_container"
+            android:orientation="vertical"
+
+            android:padding="1dp"
+            app:ael_duration="400"
+            app:ael_expanded="false">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/product_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+        </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

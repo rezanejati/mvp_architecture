@@ -2,4 +2,6 @@
     <string name="app_name">TestMR</string>
     <string name="categories">Categories</string>
     <string name="cart">Cart</string>
+    <string name="buy">Buy!</string>
+    <string name="confirm_your_address">CONFIRM YOUR ADDRESS!</string>
 </resources>
