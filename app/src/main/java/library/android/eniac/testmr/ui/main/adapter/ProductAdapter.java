@@ -1,12 +1,9 @@
 package library.android.eniac.testmr.ui.main.adapter;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import library.android.eniac.testmr.R;
-import library.android.eniac.testmr.di.component.ActivityComponentS;
-import library.android.eniac.testmr.model.CategoryModel;
+import library.android.eniac.testmr.di.component.ActivityComponent;
 import library.android.eniac.testmr.model.ProductDto;
 import library.android.eniac.testmr.ui.base.BaseViewHolder;
-import library.android.eniac.testmr.ui.main.fragment.category.CategoriesView;
 import library.android.eniac.testmr.ui.map.MapActivity;
 
 /**
@@ -52,7 +47,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
 
     }
-    public void setComponent(ActivityComponentS component) {
+    public void setComponent(ActivityComponent component) {
         component.inject(this);
 
 
@@ -61,7 +56,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         return new ProductViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.product_item, parent, false),productDtos);
+                .inflate(R.layout.product_item, parent, false));
     }
 
 
@@ -84,11 +79,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public int getItemViewType(int position) {
         return position;
     }
+
+
+
     public class ProductViewHolder extends BaseViewHolder {
 
 
-        private List<ProductDto> productDtos;
         private int position;
+        @BindView(R.id.product_price)
+        TextView tvPrice;
         @BindView(R.id.product_title)
         TextView tvProductTitle;
         @BindView(R.id.button_buy)
@@ -101,10 +100,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         }
 
-        public ProductViewHolder(View itemView, List<ProductDto> productDtos) {
+        ProductViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            this.productDtos = productDtos;
 
 
         }
@@ -114,7 +112,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             super.onBind(position);
             this.position = position;
             tvProductTitle.setText(productDtos.get(position).getProductName());
-
+            StringBuilder priceBuilder= new StringBuilder();
+            priceBuilder.append(productDtos.get(position).getProductPrice());
+            priceBuilder.append(itemView.getContext().getString(R.string.rials));
+            tvPrice.setText(priceBuilder);
         }
 
     }

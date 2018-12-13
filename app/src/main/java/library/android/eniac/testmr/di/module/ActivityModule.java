@@ -16,9 +16,13 @@ import library.android.eniac.testmr.model.ProductDto;
 import library.android.eniac.testmr.ui.main.activity.MainActivityPresenter;
 import library.android.eniac.testmr.ui.main.activity.MainActivityPresenterImpl;
 import library.android.eniac.testmr.ui.main.activity.MainActivityView;
+import library.android.eniac.testmr.ui.main.adapter.CartAdapter;
 import library.android.eniac.testmr.ui.main.adapter.CategoriesAdapter;
 import library.android.eniac.testmr.ui.main.adapter.ProductAdapter;
 import library.android.eniac.testmr.ui.main.fragment.cart.CartFragment;
+import library.android.eniac.testmr.ui.main.fragment.cart.CartMvpPresenter;
+import library.android.eniac.testmr.ui.main.fragment.cart.CartMvpView;
+import library.android.eniac.testmr.ui.main.fragment.cart.CartPresenter;
 import library.android.eniac.testmr.ui.main.fragment.category.CategoriesFragment;
 
 /**
@@ -50,14 +54,33 @@ public class ActivityModule {
                 .add(mActivity.getString(R.string.cart), CartFragment.class)
                 .create());
     }
+
     @Provides
     CategoriesAdapter categoriesAdapter() {
         return new CategoriesAdapter(new ArrayList<CategoryModel>());
     }
-   @Provides
-   ProductAdapter productAdapter() {
+
+    @Provides
+    ProductAdapter productAdapter() {
         return new ProductAdapter(new ArrayList<ProductDto>());
     }
 
+    @Provides
+    CartAdapter cartAdapter() {
+        return new CartAdapter(new ArrayList<ProductDto>());
+    }
+
+
+    @Provides
+    CartMvpPresenter<CartMvpView> cartMvpPresenter(
+            CartPresenter<CartMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    MainActivityPresenter<MainActivityView> mainActivityPresenter(
+            MainActivityPresenter<MainActivityView> presenter) {
+        return presenter;
+    }
 
 }

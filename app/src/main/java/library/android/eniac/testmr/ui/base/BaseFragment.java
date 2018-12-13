@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import butterknife.ButterKnife;
-import library.android.eniac.testmr.di.component.ActivityComponentS;
+import library.android.eniac.testmr.di.component.ActivityComponent;
 
 /**
  * Created by RezaNejati on 12/11/2018.
@@ -29,7 +29,7 @@ public abstract class BaseFragment extends Fragment {
         }
     }
     protected abstract void initializeView(View view);
-    public ActivityComponentS getActivityComponent() {
+    public ActivityComponent getActivityComponent() {
         if (baseActivity != null) {
             return baseActivity.getActivityComponent();
         }

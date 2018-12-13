@@ -3,8 +3,6 @@ package library.android.eniac.testmr.ui.base;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import library.android.eniac.testmr.di.component.ActivityComponentS;
-
 /**
  * Created by RezaNejati on 12/11/2018.
  */

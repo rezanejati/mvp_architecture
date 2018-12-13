@@ -1,31 +1,25 @@
 package library.android.eniac.testmr.ui.main.fragment.category;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import library.android.eniac.testmr.R;
 import library.android.eniac.testmr.data.product.CategoriesImpl;
-import library.android.eniac.testmr.di.component.ActivityComponentS;
+import library.android.eniac.testmr.di.component.ActivityComponent;
 import library.android.eniac.testmr.model.CategoryModel;
 import library.android.eniac.testmr.ui.base.BaseFragment;
 import library.android.eniac.testmr.ui.main.adapter.CategoriesAdapter;
-import library.android.eniac.testmr.ui.main.adapter.ProductAdapter;
 
 /**
  * Created by RezaNejati on 12/11/2018.
@@ -34,7 +28,7 @@ public class CategoriesFragment extends BaseFragment implements CategoriesView {
     @Inject
     CategoriesAdapter categoriesAdapter;
 
-    ActivityComponentS component;
+    private ActivityComponent component;
     @BindView(R.id.categories_recycler_view)
     RecyclerView rvCategoriesAdapter;
     private View view;

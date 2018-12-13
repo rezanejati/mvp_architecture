@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -14,15 +15,17 @@ import butterknife.OnClick;
 import library.android.eniac.testmr.R;
 import library.android.eniac.testmr.ui.base.BaseActivity;
 
-public class MapActivity extends BaseActivity implements MapView , OnMapReadyCallback {
+public class MapActivity extends BaseActivity implements MapView , OnMapReadyCallback ,GoogleMap.OnCameraIdleListener{
+    private GoogleMap googleMap;
+    private Double lat,lng;
 
 
     @OnClick(R.id.confirm_address)
     void onAddressConfirm() {
         Intent returnIntent = new Intent();
         returnIntent.putExtra("product",getIntent().getStringExtra("product"));
-        returnIntent.putExtra("lat",53.021212);
-        returnIntent.putExtra("lng",50.021212);
+        returnIntent.putExtra("lat",lat);
+        returnIntent.putExtra("lng",lng);
         setResult(Activity.RESULT_OK,returnIntent);
         finish();
     }
@@ -49,6 +52,16 @@ public class MapActivity extends BaseActivity implements MapView , OnMapReadyCal
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        this.googleMap=googleMap;
+        this.googleMap.setOnCameraIdleListener(this);
+
+    }
+
+    @Override
+    public void onCameraIdle() {
+        lat=googleMap.getCameraPosition().target.latitude;
+        lng=googleMap.getCameraPosition().target.longitude;
+
 
     }
 }

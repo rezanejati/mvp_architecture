@@ -5,21 +5,27 @@
     "productDtos": [
       {
         "productName": "Milk",
-        "productPrice": 70000
+        "productPrice": 70000,
+        "status": 1
 
       },  {
         "productName": "Yogurt",
-        "productPrice": 10000
+        "productPrice": 10000,
+        "status": 1
 
       }
     ,  {
         "productName": "Cup",
-        "productPrice": 10000
+        "productPrice": 10000,
+        "status": 1
+
 
       },
       {
         "productName": "Ice Cream",
-        "productPrice": 10000
+        "productPrice": 10000,
+        "status": 1
+
 
       }
     ]
@@ -30,11 +36,15 @@
     "productDtos": [
       {
         "productName": "Corn",
-        "productPrice": 12000
+        "productPrice": 12000,
+        "status": 1
+
 
       },  {
         "productName": "Fish",
-        "productPrice": 180000
+        "productPrice": 180000,
+        "status": 1
+
 
       }
 

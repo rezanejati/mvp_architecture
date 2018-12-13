@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.view.View;
 
-import library.android.eniac.testmr.di.component.ActivityComponentS;
-import library.android.eniac.testmr.di.component.DaggerActivityComponentS;
+import library.android.eniac.testmr.di.component.ActivityComponent;
+import library.android.eniac.testmr.di.component.DaggerActivityComponent;
 import library.android.eniac.testmr.di.module.ActivityModule;
 import library.android.eniac.testmr.ui.base.mvp.MvpView;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -19,19 +19,19 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  */
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity  implements MvpView {
-    private ActivityComponentS mActivityComponent;
+    private ActivityComponent mActivityComponent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mActivityComponent = DaggerActivityComponentS.builder()
+        mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((BaseApplication) getApplication()).getComponent())
                 .build();
 
     }
 
-    public ActivityComponentS getActivityComponent() {
+    public ActivityComponent getActivityComponent() {
         return mActivityComponent;
     }
 

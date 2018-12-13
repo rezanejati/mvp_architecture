@@ -5,19 +5,20 @@ import library.android.eniac.testmr.di.module.ActivityModule;
 import library.android.eniac.testmr.ui.main.activity.MainActivity;
 import library.android.eniac.testmr.ui.main.adapter.CategoriesAdapter;
 import library.android.eniac.testmr.ui.main.adapter.ProductAdapter;
+import library.android.eniac.testmr.ui.main.fragment.cart.CartFragment;
 import library.android.eniac.testmr.ui.main.fragment.category.CategoriesFragment;
-import library.android.eniac.testmr.viewholders.CategoriesViewHolder;
 
 /**
  * Created by RezaNejati on 12/11/2018.
  */
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
-public interface ActivityComponentS {
+public interface ActivityComponent {
     void inject(MainActivity mainActivity);
     void inject(CategoriesFragment categoriesFragment);
+    void inject(CartFragment cartFragment);
     void inject(ProductAdapter productAdapter);
-    void inject(CategoriesViewHolder categoriesViewHolder);
+    void inject(CategoriesAdapter.CategoriesViewHolder categoriesViewHolder);
 
 
 

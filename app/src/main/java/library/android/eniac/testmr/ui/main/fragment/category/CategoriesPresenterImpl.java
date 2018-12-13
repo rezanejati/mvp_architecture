@@ -6,6 +6,7 @@ import library.android.eniac.testmr.data.product.CategoriesImpl;
 import library.android.eniac.testmr.data.product.CategoriesInteractor;
 import library.android.eniac.testmr.model.CategoryModel;
 import library.android.eniac.testmr.ui.base.mvp.MvpPresenter;
+import library.android.eniac.testmr.ui.base.mvp.MvpView;
 
 /**
  * Created by RezaNejati on 12/11/2018.
@@ -19,19 +20,15 @@ public class CategoriesPresenterImpl implements CategoriesPresenter ,CategoriesI
     }
 
     @Override
+    public void onAttach(MvpView mvpView) {
+
+    }
+
+    @Override
     public void onDetach() {
 
     }
 
-    @Override
-    public void handleApiError(Error error) {
-
-    }
-
-    @Override
-    public void setUserAsLoggedOut() {
-
-    }
 
 
 

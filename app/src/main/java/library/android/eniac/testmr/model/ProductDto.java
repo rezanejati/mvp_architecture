@@ -12,6 +12,39 @@ public class ProductDto {
     @SerializedName("productPrice")
     @Expose
     private Integer productPrice;
+    @SerializedName("status")
+    @Expose
+    private Integer status;
+
+
+    @Expose
+    private Double lat;
+    @Expose
+    private Double lng;
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public String getProductName() {
         return productName;
