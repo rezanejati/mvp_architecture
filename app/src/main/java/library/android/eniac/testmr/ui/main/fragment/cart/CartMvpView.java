@@ -25,7 +25,7 @@ import library.android.eniac.testmr.ui.base.mvp.MvpView;
 
 
 public interface CartMvpView extends MvpView {
-    void addProduct(ProductDto productDto,Double lat,Double lng);
+    void addProduct(ProductDto productDto,Double lat,Double lng,Double currentLat,Double currentLng);
     void statusChange();
 
 

@@ -37,8 +37,8 @@ public class CartPresenter<V extends CartMvpView> extends BasePresenter<V>
 
 
     @Override
-    public void onUpdateData(ProductDto productDto,Double lat,Double lng) {
-        getMvpView().addProduct(productDto,lat,lng);
+    public void onUpdateData(ProductDto productDto,Double lat,Double lng,Double currentLat,Double currentLng) {
+        getMvpView().addProduct(productDto,lat,lng,currentLat,currentLng);
 
     }
 
@@ -53,12 +53,10 @@ public class CartPresenter<V extends CartMvpView> extends BasePresenter<V>
          h = new Handler();
         h.postDelayed(new Runnable()
         {
-            private long time = 0;
 
             @Override
             public void run()
             {
-                time += 1000;
 
                 getMvpView().statusChange();
 
@@ -73,6 +71,23 @@ public class CartPresenter<V extends CartMvpView> extends BasePresenter<V>
     }
 
 
+    @Override
+    public void onResume() {
 
+    }
 
+    @Override
+    public void onDestroy() {
+
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
 }

@@ -1,5 +1,6 @@
 package library.android.eniac.testmr.ui.main.adapter;
 
+import android.Manifest;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,6 +25,7 @@ import butterknife.OnClick;
 import library.android.eniac.testmr.R;
 import library.android.eniac.testmr.di.component.ActivityComponent;
 import library.android.eniac.testmr.model.ProductDto;
+import library.android.eniac.testmr.tools.Utility;
 import library.android.eniac.testmr.ui.base.BaseViewHolder;
 import library.android.eniac.testmr.ui.map.MapActivity;
 
@@ -94,8 +99,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView tvButtonBuy;
         @OnClick(R.id.button_buy)
         void onBuyClick() {
-            activity.startActivityForResult(new Intent(activity, MapActivity.class)
-                    .putExtra("product",new Gson().toJson(productDtos.get(position))),MAP_REQUEST_CODE);
+            new TedPermission(activity)
+                    .setPermissionListener(new PermissionListener() {
+                        @Override
+                        public void onPermissionGranted() {
+                            activity.startActivityForResult(new Intent(activity, MapActivity.class)
+                                    .putExtra("product",new Gson().toJson(productDtos.get(position))),MAP_REQUEST_CODE);
+                        }
+                        @Override
+                        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                        }
+                    })
+                    .setDeniedMessage("If you reject permission,you can not use this application, Please turn on permissions at [Setting] > [Permission]")
+                    .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+                    .check();
+
 
 
         }

@@ -102,6 +102,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         TextView tvProductPrice;
         @BindView(R.id.product_status)
         TextView tvProductStatus;
+        @BindView(R.id.user_address)
+        TextView tvUserAddress;
         @BindView(R.id.user_location)
         TextView tvUserLocation;
 
@@ -118,12 +120,24 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             super.onBind(position);
             tvProductName.setText(productDtos.get(position).getProductName());
             tvProductPrice.setText(String.valueOf(productDtos.get(position).getProductPrice()));
-            StringBuilder locationBuilder= new StringBuilder();
-            locationBuilder.append("UserAddress: ");
-            locationBuilder.append(productDtos.get(position).getLat());
-            locationBuilder.append(" , ");
-            locationBuilder.append(productDtos.get(position).getLat());
-            tvUserLocation.setText(locationBuilder);
+            StringBuilder addressBuilder= new StringBuilder();
+            addressBuilder.append("UserAddress: ");
+            addressBuilder.append(productDtos.get(position).getLat());
+            addressBuilder.append(" , ");
+            addressBuilder.append(productDtos.get(position).getLat());
+            tvUserAddress.setText(addressBuilder);
+            if (productDtos.get(position).getCurrentLat()==0.0||productDtos.get(position).getCurrentLng()==0.0){
+                tvUserLocation.setText("UserLocation: Your Location Not Available");
+            }else{
+                StringBuilder locationBuilder= new StringBuilder();
+                locationBuilder.append("UserLocation: ");
+                locationBuilder.append(productDtos.get(position).getCurrentLat());
+                locationBuilder.append(" , ");
+                locationBuilder.append(productDtos.get(position).getCurrentLng());
+                tvUserLocation.setText(locationBuilder);
+
+            }
+
 
 
             switch (productDtos.get(position).getStatus()) {

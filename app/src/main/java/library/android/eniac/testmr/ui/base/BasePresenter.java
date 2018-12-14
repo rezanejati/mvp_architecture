@@ -30,9 +30,25 @@ public class BasePresenter <V extends MvpView> implements MvpPresenter<V>  {
     }
 
     @Override
-    public void onDetach() {
-        mMvpView = null;
+    public void onResume() {
+
     }
+
+    @Override
+    public void onDestroy() {
+
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
 
     public boolean isViewAttached() {
         return mMvpView != null;

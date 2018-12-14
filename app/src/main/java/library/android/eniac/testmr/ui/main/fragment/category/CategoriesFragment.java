@@ -20,20 +20,21 @@ import library.android.eniac.testmr.di.component.ActivityComponent;
 import library.android.eniac.testmr.model.CategoryModel;
 import library.android.eniac.testmr.ui.base.BaseFragment;
 import library.android.eniac.testmr.ui.main.adapter.CategoriesAdapter;
+import library.android.eniac.testmr.ui.main.fragment.cart.CartMvpPresenter;
+import library.android.eniac.testmr.ui.main.fragment.cart.CartMvpView;
 
 /**
  * Created by RezaNejati on 12/11/2018.
  */
-public class CategoriesFragment extends BaseFragment implements CategoriesView {
+public class CategoriesFragment extends BaseFragment implements CategoriesMvpView {
     @Inject
     CategoriesAdapter categoriesAdapter;
-
+    @Inject
+    CategoriesMvpPresenter<CategoriesMvpView> mPresenter;
     private ActivityComponent component;
     @BindView(R.id.categories_recycler_view)
     RecyclerView rvCategoriesAdapter;
     private View view;
-    private CategoriesPresenterImpl presenter;
-
 
     @Nullable
     @Override
@@ -48,9 +49,11 @@ public class CategoriesFragment extends BaseFragment implements CategoriesView {
 
         if (component != null) {
             component.inject(this);
+            mPresenter.onAttach(this);
+            mPresenter.getData(new CategoriesImpl(getActivity()));
+
 
         }
-        presenter = new CategoriesPresenterImpl(this, new CategoriesImpl(getActivity()));
         return view;
     }
 

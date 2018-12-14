@@ -24,7 +24,7 @@ import library.android.eniac.testmr.ui.base.mvp.MvpPresenter;
 public interface CartMvpPresenter<V extends CartMvpView>
         extends MvpPresenter<V> {
 
-    void onUpdateData(ProductDto productDto,Double lat,Double lng);
+    void onUpdateData(ProductDto productDto,Double lat,Double lng,Double currentLat,Double currentLng);
     void updateStatus();
 
 

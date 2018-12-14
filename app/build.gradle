@@ -35,11 +35,13 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
+    implementation 'gun0912.ted:tedpermission:1.0.3'
+
 
 
 }

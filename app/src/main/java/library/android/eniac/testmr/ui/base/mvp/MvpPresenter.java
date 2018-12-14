@@ -6,7 +6,10 @@ package library.android.eniac.testmr.ui.base.mvp;
 public interface MvpPresenter<V extends MvpView> {
 
     void onAttach(V mvpView);
+    void onResume();
+    void onDestroy();
+    void onStart();
+    void onPause();
 
-    void onDetach();
 
 }

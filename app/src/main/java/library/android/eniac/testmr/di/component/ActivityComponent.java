@@ -7,6 +7,7 @@ import library.android.eniac.testmr.ui.main.adapter.CategoriesAdapter;
 import library.android.eniac.testmr.ui.main.adapter.ProductAdapter;
 import library.android.eniac.testmr.ui.main.fragment.cart.CartFragment;
 import library.android.eniac.testmr.ui.main.fragment.category.CategoriesFragment;
+import library.android.eniac.testmr.ui.map.MapActivity;
 
 /**
  * Created by RezaNejati on 12/11/2018.
@@ -18,6 +19,7 @@ public interface ActivityComponent {
     void inject(CategoriesFragment categoriesFragment);
     void inject(CartFragment cartFragment);
     void inject(ProductAdapter productAdapter);
+    void inject(MapActivity mapActivity);
     void inject(CategoriesAdapter.CategoriesViewHolder categoriesViewHolder);
 
 

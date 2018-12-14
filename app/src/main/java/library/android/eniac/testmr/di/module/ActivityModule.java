@@ -24,6 +24,12 @@ import library.android.eniac.testmr.ui.main.fragment.cart.CartMvpPresenter;
 import library.android.eniac.testmr.ui.main.fragment.cart.CartMvpView;
 import library.android.eniac.testmr.ui.main.fragment.cart.CartPresenter;
 import library.android.eniac.testmr.ui.main.fragment.category.CategoriesFragment;
+import library.android.eniac.testmr.ui.main.fragment.category.CategoriesMvpPresenter;
+import library.android.eniac.testmr.ui.main.fragment.category.CategoriesMvpView;
+import library.android.eniac.testmr.ui.main.fragment.category.CategoriesPresenter;
+import library.android.eniac.testmr.ui.map.MapMvpPresenter;
+import library.android.eniac.testmr.ui.map.MapMvpView;
+import library.android.eniac.testmr.ui.map.MapPresenter;
 
 /**
  * Created by RezaNejati on 12/11/2018.
@@ -76,7 +82,16 @@ public class ActivityModule {
             CartPresenter<CartMvpView> presenter) {
         return presenter;
     }
-
+    @Provides
+    CategoriesMvpPresenter<CategoriesMvpView> categoriesMvpPresenter(
+            CategoriesPresenter<CategoriesMvpView> presenter) {
+        return presenter;
+    }
+    @Provides
+    MapMvpPresenter<MapMvpView> mapMvpPresenter(
+            MapPresenter<MapMvpView> presenter) {
+        return presenter;
+    }
     @Provides
     MainActivityPresenter<MainActivityView> mainActivityPresenter(
             MainActivityPresenter<MainActivityView> presenter) {

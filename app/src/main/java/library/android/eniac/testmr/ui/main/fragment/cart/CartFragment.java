@@ -87,9 +87,11 @@ public class CartFragment extends BaseFragment implements CartMvpView {
     }
 
     @Override
-    public void addProduct(ProductDto productDto,Double lat,Double lng) {
+    public void addProduct(ProductDto productDto,Double lat,Double lng,Double currentLat,Double currentLng) {
         productDto.setLat(lat);
         productDto.setLng(lng);
+        productDto.setCurrentLat(currentLat);
+        productDto.setCurrentLng(currentLng);
 
 
 

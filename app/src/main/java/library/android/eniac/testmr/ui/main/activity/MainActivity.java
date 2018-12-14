@@ -114,7 +114,13 @@ public class MainActivity extends BaseActivity implements MainActivityView, Smar
             vpMain.setCurrentItem(1);
             Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.main_view_pager + ":" + vpMain.getCurrentItem());
             if (vpMain.getCurrentItem() == 1 && page != null) {
-                ((CartFragment)page).addProduct(user,data.getDoubleExtra("lat",0),data.getDoubleExtra("lng",0));
+                ((CartFragment)page).addProduct(user,
+                        data.getDoubleExtra("lat",0),
+                        data.getDoubleExtra("lng",0),
+                        data.getDoubleExtra("currentLat",0),
+                        data.getDoubleExtra("currentLng",0)
+
+                );
             }
 
 

@@ -21,6 +21,26 @@ public class ProductDto {
     private Double lat;
     @Expose
     private Double lng;
+    @Expose
+    private Double currentLat;
+    @Expose
+    private Double currentLng;
+
+    public Double getCurrentLat() {
+        return currentLat;
+    }
+
+    public void setCurrentLat(Double currentLat) {
+        this.currentLat = currentLat;
+    }
+
+    public Double getCurrentLng() {
+        return currentLng;
+    }
+
+    public void setCurrentLng(Double currentLng) {
+        this.currentLng = currentLng;
+    }
 
     public Double getLat() {
         return lat;
