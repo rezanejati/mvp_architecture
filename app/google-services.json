@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "189013567593",
+    "firebase_url": "https://mvp-architecture-44efb.firebaseio.com",
+    "project_id": "mvp-architecture-44efb",
+    "storage_bucket": "mvp-architecture-44efb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189013567593:android:4e98c29cdf1ce841",
+        "android_client_info": {
+          "package_name": "library.android.eniac.testmr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189013567593-c0rtrq5jg5sputd1u26tbernn3t81dpf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "library.android.eniac.testmr",
+            "certificate_hash": "6772fc0fbd9a3ff44c57dff6d093edcc1044ac0a"
+          }
+        },
+        {
+          "client_id": "189013567593-15ludupk2c0lrhavv779p50gvdn3toc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3YXI4Kfij-813DGNDZXB9mwe5Pr8iE48"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189013567593-15ludupk2c0lrhavv779p50gvdn3toc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

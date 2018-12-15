@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TestMR</string>
+    <string name="categories">Categories</string>
+    <string name="cart">Cart</string>
+    <string name="buy">Buy!</string>
+    <string name="confirm_your_address">CONFIRM YOUR ADDRESS!</string>
+    <string name="rials">Rial</string>
+    <string name="process">InProcess</string>
+    <string name="pending">pending</string>
+    <string name="delivered">delivered</string>
+    <string name="delivery">delivery</string>
+</resources>
